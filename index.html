@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Michelle 💛</title>
+<title>Maak een keuze</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Space+Grotesk:wght@500;700&display=swap');
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -14,44 +14,23 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-    font-family: 'Quicksand', sans-serif;
+    background: #0a0a0a;
+    font-family: 'Inter', sans-serif;
     overflow: hidden;
     position: relative;
   }
 
-  /* Floating background hearts */
-  .bg-heart {
+  /* Subtle grid */
+  body::before {
+    content: '';
     position: fixed;
-    font-size: 20px;
-    opacity: 0.15;
-    animation: floatHeart linear infinite;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: 
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
     pointer-events: none;
     z-index: 0;
-  }
-
-  @keyframes floatHeart {
-    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-    10% { opacity: 0.15; }
-    90% { opacity: 0.15; }
-    100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
-  }
-
-  /* Stars */
-  .star {
-    position: fixed;
-    width: 3px;
-    height: 3px;
-    background: white;
-    border-radius: 50%;
-    animation: twinkle 2s ease-in-out infinite alternate;
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  @keyframes twinkle {
-    0% { opacity: 0.2; transform: scale(1); }
-    100% { opacity: 1; transform: scale(1.5); }
   }
 
   .container {
@@ -63,57 +42,56 @@
     width: 100%;
   }
 
-  /* Envelope animation */
-  .envelope {
-    font-size: 80px;
-    margin-bottom: 20px;
+  .emoji {
+    font-size: 60px;
+    margin-bottom: 30px;
     display: inline-block;
-    animation: envelopeBounce 2s ease-in-out infinite;
-    filter: drop-shadow(0 10px 30px rgba(255, 200, 100, 0.3));
+    animation: slowSpin 8s linear infinite;
   }
 
-  @keyframes envelopeBounce {
-    0%, 100% { transform: translateY(0) rotate(-5deg); }
-    50% { transform: translateY(-15px) rotate(5deg); }
+  @keyframes slowSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
   }
 
   .title {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.8em;
-    color: #ffd700;
-    text-shadow: 0 0 40px rgba(255, 215, 0, 0.3);
-    margin-bottom: 10px;
-    animation: fadeInDown 1s ease-out;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.2em;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 15px;
+    animation: fadeInDown 0.8s ease-out;
     line-height: 1.2;
+    letter-spacing: -1px;
   }
 
   .subtitle {
-    font-size: 1.2em;
-    color: #e0e0e0;
+    font-size: 1.1em;
+    color: #666;
     margin-bottom: 40px;
-    animation: fadeInDown 1s ease-out 0.3s both;
-    line-height: 1.6;
+    animation: fadeInDown 0.8s ease-out 0.2s both;
+    line-height: 1.7;
     font-weight: 400;
   }
 
-  .subtitle em {
-    color: #ffd700;
-    font-style: italic;
+  .subtitle strong {
+    color: #999;
+    font-weight: 600;
   }
 
   @keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-30px); }
+    from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* Drama counter */
-  .drama-counter {
-    color: #ff6b9d;
-    font-size: 0.9em;
-    margin-bottom: 30px;
-    min-height: 24px;
-    animation: fadeIn 0.5s ease-out;
+  /* Message area */
+  .msg {
+    color: #444;
+    font-size: 0.95em;
+    margin-bottom: 25px;
+    min-height: 22px;
     font-style: italic;
+    animation: fadeIn 0.3s ease-out;
   }
 
   @keyframes fadeIn {
@@ -123,75 +101,66 @@
 
   .buttons {
     display: flex;
-    gap: 30px;
+    gap: 25px;
     justify-content: center;
     align-items: center;
-    min-height: 120px;
-    flex-wrap: wrap;
+    min-height: 100px;
     position: relative;
   }
 
   .btn {
-    padding: 18px 50px;
-    font-size: 1.3em;
-    font-family: 'Quicksand', sans-serif;
+    padding: 16px 45px;
+    font-size: 1.15em;
+    font-family: 'Inter', sans-serif;
     font-weight: 700;
     border: none;
-    border-radius: 50px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    position: relative;
   }
 
   .btn-yes {
-    background: linear-gradient(135deg, #ffd700, #ffaa00);
-    color: #1a1a2e;
-    box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4);
-    animation: pulse 2s ease-in-out infinite;
+    background: #fff;
+    color: #0a0a0a;
+    transition: all 0.2s ease;
   }
 
   .btn-yes:hover {
-    transform: scale(1.1);
-    box-shadow: 0 12px 40px rgba(255, 215, 0, 0.6);
-  }
-
-  @keyframes pulse {
-    0%, 100% { box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4); }
-    50% { box-shadow: 0 8px 50px rgba(255, 215, 0, 0.7); }
+    transform: scale(1.05);
+    box-shadow: 0 0 40px rgba(255,255,255,0.15);
   }
 
   .btn-no {
-    background: linear-gradient(135deg, #555, #444);
-    color: #aaa;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    background: transparent;
+    color: #333;
+    border: 1px solid #222;
     position: absolute;
     user-select: none;
-  }
-
-  .btn-no.dodging {
     transition: all 0.15s ease-out;
   }
 
-  /* Final state */
   .btn-no.converted {
-    background: linear-gradient(135deg, #ffd700, #ffaa00);
-    color: #1a1a2e;
-    box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4);
-    animation: pulse 2s ease-in-out infinite;
+    background: #fff;
+    color: #0a0a0a;
+    border: none;
     position: relative;
     cursor: pointer;
+    box-shadow: 0 0 40px rgba(255,255,255,0.15);
   }
 
-  /* Victory screen */
+  .btn-no.converted:hover {
+    transform: scale(1.05);
+  }
+
+  /* Victory */
   .victory {
     display: none;
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
     z-index: 1000;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    background: #0a0a0a;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -201,60 +170,53 @@
 
   .victory.show {
     display: flex;
-    animation: victoryIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: victoryIn 0.6s ease-out;
   }
 
   @keyframes victoryIn {
-    from { opacity: 0; transform: scale(0.5); }
-    to { opacity: 1; transform: scale(1); }
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
 
-  .victory-heart {
-    font-size: 120px;
-    animation: heartBeat 1s ease-in-out infinite;
-    filter: drop-shadow(0 10px 40px rgba(255, 107, 157, 0.5));
+  .v-emoji {
+    font-size: 80px;
+    margin-bottom: 25px;
   }
 
-  @keyframes heartBeat {
-    0%, 100% { transform: scale(1); }
-    15% { transform: scale(1.15); }
-    30% { transform: scale(1); }
-    45% { transform: scale(1.1); }
+  .v-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
   }
 
-  .victory-text {
-    font-family: 'Playfair Display', serif;
-    font-size: 3em;
-    color: #ffd700;
-    margin: 30px 0 15px;
-    text-shadow: 0 0 40px rgba(255, 215, 0, 0.4);
-    line-height: 1.3;
-  }
-
-  .victory-sub {
-    font-size: 1.3em;
-    color: #e0e0e0;
-    max-width: 500px;
-    line-height: 1.6;
-  }
-
-  .victory-sub em {
-    color: #ffd700;
-    font-style: italic;
-  }
-
-  .victory-ryan {
-    margin-top: 40px;
+  .v-sub {
     font-size: 1.1em;
-    color: #ff6b9d;
+    color: #666;
+    max-width: 450px;
+    line-height: 1.7;
+  }
+
+  .v-sub strong {
+    color: #999;
+    font-weight: 600;
+  }
+
+  .v-footer {
+    margin-top: 35px;
+    color: #333;
+    font-size: 0.9em;
     font-style: italic;
   }
 
-  /* Confetti */
+  /* Confetti - minimal white */
   .confetti {
     position: fixed;
-    width: 10px;
-    height: 10px;
+    width: 6px;
+    height: 6px;
+    background: #fff;
     top: -10px;
     z-index: 1001;
     pointer-events: none;
@@ -265,151 +227,97 @@
     to { transform: translateY(110vh) rotate(720deg); opacity: 0; }
   }
 
-  /* Heart rain */
-  .heart-rain {
-    position: fixed;
-    font-size: 30px;
-    top: -40px;
-    z-index: 1001;
-    pointer-events: none;
-    animation: heartFall linear forwards;
-  }
-
-  @keyframes heartFall {
-    to { transform: translateY(110vh) rotate(360deg) scale(0.5); opacity: 0; }
-  }
-
-  /* Mobile adjustments */
   @media (max-width: 600px) {
-    .title { font-size: 2em; }
+    .title { font-size: 1.7em; }
     .subtitle { font-size: 1em; }
-    .btn { padding: 15px 35px; font-size: 1.1em; }
-    .victory-text { font-size: 2.2em; }
-    .victory-heart { font-size: 80px; }
+    .btn { padding: 14px 30px; font-size: 1em; }
+    .v-title { font-size: 2em; }
   }
 </style>
 </head>
 <body>
 
 <div class="container">
-  <div class="envelope">💌</div>
-  <h1 class="title">Hey Michelle</h1>
+  <div class="emoji">🤷‍♂️</div>
+  <h1 class="title">Oké Michelle.</h1>
   <p class="subtitle">
-    Ik mis je. Echt.<br>
-    Geen drama, geen spelletjes... <em>oké, misschien een beetje.</em><br><br>
-    Wil je terug vrienden zijn? 🥺
+    Ga je die moeite doen of niet?<br>
+    Eén kans. <strong>Kies verstandig.</strong>
   </p>
-  <div class="drama-counter" id="dramaMsg"></div>
-  <div class="buttons" id="buttonArea">
-    <button class="btn btn-yes" id="yesBtn" onclick="victory()">JA 💛</button>
+  <div class="msg" id="msg"></div>
+  <div class="buttons" id="btnArea">
+    <button class="btn btn-yes" onclick="victory()">Doe ik</button>
     <button class="btn btn-no" id="noBtn" onmouseover="dodge()" onclick="dodge()">Nee</button>
   </div>
 </div>
 
 <div class="victory" id="victory">
-  <div class="victory-heart">💛</div>
-  <h1 class="victory-text">Ik wist het.</h1>
-  <p class="victory-sub">
-    Natuurlijk zei je ja.<br>
-    Ik ben <em>Ryan</em>, mijn vrienden kunnen me simpelweg niet weerstaan. 😏<br><br>
-    Welkom terug, Michelle. Je werd gemist.
+  <div class="v-emoji">👑</div>
+  <h1 class="v-title">Goede keuze.</h1>
+  <p class="v-sub">
+    Wist ik wel.<br>
+    Welkom terug. <strong>Don't make me wait next time.</strong>
   </p>
-  <p class="victory-ryan">— Ryan 💛</p>
+  <p class="v-footer">— R</p>
 </div>
 
 <script>
-  // Background stars
-  for (let i = 0; i < 50; i++) {
-    const star = document.createElement('div');
-    star.className = 'star';
-    star.style.left = Math.random() * 100 + 'vw';
-    star.style.top = Math.random() * 100 + 'vh';
-    star.style.animationDelay = Math.random() * 2 + 's';
-    star.style.animationDuration = (1.5 + Math.random() * 2) + 's';
-    document.body.appendChild(star);
-  }
-
-  // Background floating hearts
-  const heartEmojis = ['💛', '✨', '💫', '⭐'];
-  setInterval(() => {
-    const heart = document.createElement('div');
-    heart.className = 'bg-heart';
-    heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
-    heart.style.left = Math.random() * 100 + 'vw';
-    heart.style.animationDuration = (6 + Math.random() * 8) + 's';
-    heart.style.fontSize = (15 + Math.random() * 20) + 'px';
-    document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 14000);
-  }, 800);
-
-  // Dodge logic
   let attempts = 0;
   const noBtn = document.getElementById('noBtn');
-  const dramaMsg = document.getElementById('dramaMsg');
-  const buttonArea = document.getElementById('buttonArea');
+  const msg = document.getElementById('msg');
+  const btnArea = document.getElementById('btnArea');
 
-  const dramaMessages = [
-    "Hé, niet wegklikken! 😤",
-    "Je probeert het echt? Lief. Maar nee.",
-    "Michelle... kom op nou 💛",
-    "Die knop werkt niet, schat.",
-    "Zelfs een ENTJ kan hier niet omheen. 😏",
-    "Volhouden is bewonderenswaardig. Maar... nee.",
-    "Oké dit is bijna schattig.",
-    "Nog steeds hier? Mooi zo. 👀",
-    "Je weet dat je JA gaat zeggen.",
-    "Laatste kans om het makkelijk te doen...",
-    "Nu niet meer. 😌",
+  const messages = [
+    "Weet je het zeker?",
+    "Die knop doet het niet, probeer maar.",
+    "Je verdoet je tijd.",
+    "Je bent koppig. Ik waardeer dat. Maar nee.",
+    "Dit is pijnlijk om naar te kijken.",
+    "De enige weg is vooruit.",
+    "Je gaat toch JA zeggen, waarom vechten?",
+    "Volgens mij klik je stiekem best op JA.",
+    "Laatste kans om het met styl te doen...",
+    "Had je leuk gevonden.",
+    "Klaar? Mooi."
   ];
 
   const noTexts = [
-    "Nee", "Misschien?", "Echt niet?", "Toch wel?", "Denk na...",
-    "Twijfel?", "Hmm...", "Nog steeds?", "Waarom?", "Stop!",
-    "JA 💛"
+    "Nee", "Nee?", "Hmm", "Echt?", "Wacht", "Misschien...", 
+    "Toe nou", "Oké fine", "JA al goed"
   ];
 
   function dodge() {
     attempts++;
     const maxAttempts = 10;
-    
-    noBtn.classList.add('dodging');
 
     if (attempts <= maxAttempts) {
-      // Random position within button area
-      const area = buttonArea.getBoundingClientRect();
+      const area = btnArea.getBoundingClientRect();
       const btnW = noBtn.offsetWidth;
       const btnH = noBtn.offsetHeight;
-      
-      const maxX = area.width - btnW - 20;
-      const maxY = 150;
-      
+      const maxX = area.width - btnW - 10;
       const newX = Math.random() * maxX;
-      const newY = Math.random() * maxY;
+      const newY = 60 + Math.random() * 100;
 
       noBtn.style.position = 'absolute';
       noBtn.style.left = newX + 'px';
-      noBtn.style.top = (newY + 60) + 'px';
+      noBtn.style.top = newY + 'px';
 
-      // Update button text
-      const textIdx = Math.min(attempts, noTexts.length - 1);
+      const textIdx = Math.min(attempts - 1, noTexts.length - 1);
       noBtn.textContent = noTexts[textIdx];
 
-      // Show drama message
-      const msgIdx = Math.min(attempts - 1, dramaMessages.length - 1);
-      dramaMsg.textContent = dramaMessages[msgIdx];
+      const msgIdx = Math.min(attempts - 1, messages.length - 1);
+      msg.textContent = messages[msgIdx];
 
-      // Make yes button grow
-      const yesScale = 1 + (attempts * 0.05);
-      const yesBtn = document.getElementById('yesBtn');
+      // Shrink no, grow yes
+      const yesBtn = document.querySelector('.btn-yes');
+      const yesScale = 1 + (attempts * 0.04);
       yesBtn.style.transform = `scale(${yesScale})`;
-      
-      // Shrink no button slightly each time
+
       const noScale = Math.max(0.7, 1 - (attempts * 0.03));
       noBtn.style.transform = `scale(${noScale})`;
 
     } else {
-      // FINAL STATE: Convert to JA
-      noBtn.textContent = "JA 💛";
+      noBtn.textContent = "JA al goed";
       noBtn.className = "btn btn-no converted";
       noBtn.style.position = 'relative';
       noBtn.style.left = 'auto';
@@ -417,58 +325,25 @@
       noBtn.style.transform = 'scale(1)';
       noBtn.onclick = () => victory();
       noBtn.onmouseover = null;
-      dramaMsg.textContent = "Zie je wel? 💛";
+      msg.textContent = "Zie je? Was dat zo moeilijk.";
     }
   }
 
   function victory() {
     document.getElementById('victory').classList.add('show');
     
-    // Confetti explosion
-    const colors = ['#ffd700', '#ff6b9d', '#00d4ff', '#ff4757', '#2ed573', '#ffa502', '#ff6348'];
-    const shapes = ['circle', 'square', 'triangle'];
-    
-    for (let i = 0; i < 150; i++) {
+    for (let i = 0; i < 80; i++) {
       setTimeout(() => {
-        const confetti = document.createElement('div');
-        confetti.className = 'confetti';
-        const color = colors[Math.floor(Math.random() * colors.length)];
-        const shape = shapes[Math.floor(Math.random() * shapes.length)];
-        
-        confetti.style.left = Math.random() * 100 + 'vw';
-        confetti.style.background = color;
-        confetti.style.width = (5 + Math.random() * 10) + 'px';
-        confetti.style.height = (5 + Math.random() * 10) + 'px';
-        confetti.style.animationDuration = (2 + Math.random() * 3) + 's';
-        confetti.style.borderRadius = shape === 'circle' ? '50%' : shape === 'square' ? '2px' : '0';
-        
-        if (shape === 'triangle') {
-          confetti.style.background = 'transparent';
-          confetti.style.width = '0';
-          confetti.style.height = '0';
-          confetti.style.borderLeft = '6px solid transparent';
-          confetti.style.borderRight = '6px solid transparent';
-          confetti.style.borderBottom = '12px solid ' + color;
-        }
-        
-        document.body.appendChild(confetti);
-        setTimeout(() => confetti.remove(), 5000);
-      }, i * 20);
-    }
-
-    // Heart rain
-    const hearts = ['💛', '✨', '💫', '⭐', '💛'];
-    for (let i = 0; i < 40; i++) {
-      setTimeout(() => {
-        const heart = document.createElement('div');
-        heart.className = 'heart-rain';
-        heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
-        heart.style.left = Math.random() * 100 + 'vw';
-        heart.style.animationDuration = (2 + Math.random() * 4) + 's';
-        heart.style.fontSize = (20 + Math.random() * 30) + 'px';
-        document.body.appendChild(heart);
-        setTimeout(() => heart.remove(), 6000);
-      }, i * 100);
+        const c = document.createElement('div');
+        c.className = 'confetti';
+        c.style.left = Math.random() * 100 + 'vw';
+        c.style.animationDuration = (2 + Math.random() * 3) + 's';
+        c.style.width = (3 + Math.random() * 5) + 'px';
+        c.style.height = c.style.width;
+        c.style.opacity = 0.3 + Math.random() * 0.7;
+        document.body.appendChild(c);
+        setTimeout(() => c.remove(), 5000);
+      }, i * 25);
     }
   }
 </script>
